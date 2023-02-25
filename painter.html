@@ -2,39 +2,45 @@
 <html>
  
 <body>
-    <title>painters page</title>
+    <title>Painter Page</title>
     <h2>Painter entry Yogesh Naidu Mahareddy</h2>
 
 <h2>Getting input</h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="form1_painter">The hidden painter name</label>
+    <input type="password" id="form1_painter" name="form1_painter" value="Monet"><br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <label for="form1_guess">Guess the painter</label>
+    <input type="text" id="form1_guess" name="form1_guess"><br>
+
+    <input type="button" onclick="checkPainter()" value="Check the guess">
 </form>
 
+<p id="results"></p>
 
-<p id="result">This text will be replaced </p>
 
-<script> 
+<script>
+    var good = 0;
+    var oops = 0;
+    function checkPainter() {
+        painter = document.getElementById("form1_painter").value
+        guess = document.getElementById("form1_guess").value
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
+        result = document.getElementById("results")
+        if (painter == guess) {
+            good += 1
+            alert("You got it right");
+
+        } else {
+            oops += 1
+            alert("Sorry");
+        }
+
+        document.getElementById("results").innerHTML = "good counts : " + good + " <br> oops counts : " + oops
+
     }
-}
 </script>
 
 </body>
