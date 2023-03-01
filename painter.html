@@ -43,5 +43,31 @@
     }
 </script>
 
+<div class="container">
+    <img src="aborma.jpg" id="images" width="100" height="100" onclick="selectImage()">
+</div>
+<script>
+    var useImage = 1
+    var img = document.getElementById("images")
+    function selectImage() {
+        switch(useImage) {
+            case 1:
+                img.src = "aborma.jpg"
+                useImage++
+                break
+            case 2:
+                img.src = "danae.jpg"
+                useImage++
+                break
+            case 3:
+                img.src = "machilus.jpg"
+                useImage = 1
+                break
+            default:
+        }
+    }
+
+</script>
+
 </body>
 </html> 
