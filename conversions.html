@@ -18,10 +18,19 @@
     <input type="button" onclick="convert()" value="Show conversions">
 </form>
 
-
 <p id="result1">This text will be replaced </p>
 
-
+<form>
+    <input type="radio" id="average" name="calculations" onclick="chooseOp()" value="mean"  checked >
+    <label for="average">average</label>
+    <br>
+    <input type="radio" id="max" name="calculations" onclick="chooseOp()" value="maximum">
+    <label for="max">max</label>
+    <br>
+    <input type="radio" id="min" name="calculations" onclick="chooseOp()" value="minimum">
+    <label for="min">min</label>
+</form>
+<p id="result2">This text will be replaced </p>
 
 <script> 
     function convert(){
