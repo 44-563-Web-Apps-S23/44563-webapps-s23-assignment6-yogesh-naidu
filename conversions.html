@@ -6,37 +6,52 @@
  
 <body>
 
-<h2>Yogesh Naidu shows currency conversions </h2>
+<h2> Yogesh Naidu shows currency conversions </h2>
 
 <form>
-    <label for="form1_age">What is your age </label>
-    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
+    <label for="base1"> Enter base amount </label>
+    <input type ="number" id="base1" name="base1" min=10 max=50 step=2 value=50> <br>
 
-    <label for="form1_nick">What is your nickname </label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+    <label for="convele"> Enter the conversion rate </label>
+    <input type ="number" id="convele" name="convele" value=35> <br>
 
-    <input type="button" onclick="resolveForm()" value="Get values from form">
+    <input type="button" onclick="convert()" value="Show conversions">
 </form>
 
 
-<p id="result">This text will be replaced </p>
+<p id="result1">This text will be replaced </p>
 
 <script> 
+    function convert(){
+        base = document.getElementById("base1").value
+        element = document.getElementById("convele").value
+        toShow=''    
+        out = document.getElementById("result1")
+        for(let i=0;i<5;i++){     
+            let conversion = base*element;
+            toShow = toShow+" "+ base +" is "+ conversion + ";";
+            base = base*2
+        }
+        document.getElementById("result1").innerHTML = "Conversions are:" + toShow;}
+    function chooseOp(){
+       let answer=0;
+        let base = document.getElementById("base1").value;
+        let element = document.getElementById("convele").value;
+        let average = document.getElementById("average").checked;
+        let max = document.getElementById("max").checked;
+        let min = document.getElementById("min").checked;
+        if (average) {
+            answer = (parseInt(base)+parseInt(element))/2;
+        }
+        else if (max) {
+            answer = Math.max(base,element);
+        }
+        else if(min){
+            answer = Math.min(base,element);
+        }
+        document.getElementById("result1").innerHTML = answer}
+    </script>
 
-function resolveForm (){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    confirmed = confirm("Are these the values? "+age+" and "+nick)
-    
-    out = document.getElementById("result")
-    if(confirmed){
-        out.innerHTML = "Values were confirmed"
-    } else {
-        out.innerHTML = "Values were not confirmed"
-    }
-}
-</script>
 
 </body>
 </html> 
