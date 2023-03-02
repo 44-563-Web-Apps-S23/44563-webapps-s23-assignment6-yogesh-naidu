@@ -7,6 +7,8 @@
 
 <h2>Getting input</h2>
 
+
+
 <form>
     <label for="form1_painter">The hidden painter name</label>
     <input type="password" id="form1_painter" name="form1_painter" value="Monet"><br>
@@ -33,10 +35,15 @@
             good += 1
             alert("You got it right");
 
-        } else {
+        } 
+        else if (oops >= 10) {
+                document.getElementById("btn").onclick = giveAlert();
+        }
+        else {
             oops += 1
             alert("Sorry");
         }
+        
 
         document.getElementById("results").innerHTML = "good counts : " + good + " <br> oops counts : " + oops
 
@@ -66,6 +73,9 @@
             default:
         }
     }
+    function giveAlert() {
+            alert("Sorry, ran out of guesses.");
+        }
 
 </script>
 
